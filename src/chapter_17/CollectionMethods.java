@@ -18,7 +18,7 @@ public class CollectionMethods {
 
         Iterator<String> it = c.iterator();
         while(it.hasNext()) {
-            System.out.print(it);
+            System.out.print(it.next() + " ");
         }
     }
 }
