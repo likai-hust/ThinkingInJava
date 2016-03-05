@@ -56,7 +56,7 @@ public class TypesForSet {
         fill(set, type);
         System.out.println(set);
     }
-    public static void mian(String[] args) {
+    public static void main(String[] args) {
         //三种set类型，hash，tree，link
         test(new HashSet<HashType>(), HashType.class);      //唯一
         test(new LinkedHashSet<HashType>(), HashType.class);//插入有序
