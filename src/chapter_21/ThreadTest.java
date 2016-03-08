@@ -10,9 +10,10 @@ class Task implements Runnable {
     private int taskLoop = 8;
     @Override
     public void run() {
+        Thread.currentThread().setPriority(id + 1); //设置线程优先级[1 - 10]
         while(taskLoop-- > 0) {
             System.out.println("id:" + id + ",taskLoop:" + taskLoop + " ");
-            //Thread.yield();   //生命时间片可以抢占
+            //Thread.yield();   //让步，声明时间片可以抢占
             try {
                 TimeUnit.MILLISECONDS.sleep(10);    //阻塞某段时间
             } catch (InterruptedException e) {
@@ -28,8 +29,11 @@ class Task implements Runnable {
 public class ThreadTest {
     public static void main(String[] args) {
         //main线程和自定义线程交错进行
-        for(int i = 0; i < 5; i++)
-            new Thread(new Task()).start();
+        for(int i = 0; i < 5; i++) {
+            Thread daemon = new Thread(new Task());
+            daemon.setDaemon(true); //设置为后台线程
+            daemon.start();
+        }
         ExecutorService executor = Executors.newCachedThreadPool();
         for(int i = 0; i < 5; i++)
             executor.execute(new Task());
