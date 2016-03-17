@@ -1,9 +1,6 @@
 package chapter_17;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * HashMap 性能最好，LinkedHashMap 插入有序，TreeMap 插入排序
@@ -16,6 +13,7 @@ public class Maps {
         for(String v : value) {
             hashMap.put(v.hashCode(), v);
         }
+        //Iterator it = hashMap
         System.out.println(hashMap.keySet());
         System.out.println(hashMap.values());
         Map<Integer, String> treeMap = new TreeMap<>();
@@ -29,5 +27,29 @@ public class Maps {
             linkedMap.put(v.hashCode(), v);
         }
         System.out.println(linkedMap);
+        //How to Iterate Over a Map
+        System.out.println("--------------直接使用entrySet");
+        // 1.使用entry
+        for(Map.Entry<Integer, String> entry : hashMap.entrySet())
+            System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
+        System.out.println("--------------分别遍历keyset和values");
+        // 2.分别遍历key和value
+        for(Integer key : hashMap.keySet())
+            System.out.println("key : " + key);
+        for(String v : hashMap.values())
+            System.out.println("value : " + v);
+        System.out.println("--------------使用迭代器entryset.iterator");
+        // 3.使用迭代器
+        Iterator<Map.Entry<Integer, String>> iterator = hashMap.entrySet().iterator();
+        while(iterator.hasNext()) {
+            Map.Entry<Integer, String> entry = iterator.next();
+            System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
+        }
+        System.out.println("--------------获取keyset，查找value");
+        // 4.根据key查找value
+        for(Integer i : hashMap.keySet()) {
+            String v = hashMap.get(i);
+            System.out.println("Key : " + i + ", Value : " + v);
+        }
     }
 }
