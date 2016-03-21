@@ -1,5 +1,7 @@
 package DesignPattern;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
 /**
  * 1.最简版本，线程不安全，懒汉式
  */
@@ -71,9 +73,22 @@ class Singleton4 {
     }
 }
 /**
+ * 类初始化，借助类初始化期间的互斥锁
+ * 初始化发生在锁获取之后和创建实例之前
+ */
+class Singleton5 {
+    private static class SingletonHolder {
+        private static final Singleton5 instance = new Singleton5();
+    }
+    private Singleton5() {}
+    public Singleton5 getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+/**
  * 枚举版本，创建实例线程安全
  */
-enum Singleton5 {
+enum Singleton6 {
     INSTANCE;
 }
 /**单例模式：保证只有一个类的实例
