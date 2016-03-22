@@ -1,4 +1,4 @@
-package DesignPattern;
+package DesignPattern.ProxyPattern;
 
 /**
  * 抽象对象角色
@@ -38,7 +38,7 @@ class ProxyObject extends AbstractObject {
  * 要点：拥有<strong>相同</strong>的接口，可以相互<strong>替代</strong>，代理持有<strong>真实对象</strong>，可以操作真实对象，还可以在真实对象之前进行<strong>额外</strong>的操作。
  * Created by Kai on 2016/3/21.
  */
-public class ProxyPattern {
+public class Proxy {
     public static void main(String... args) {
         AbstractObject obj = new ProxyObject();
         obj.operation();
