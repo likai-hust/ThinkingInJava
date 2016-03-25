@@ -9,10 +9,9 @@ public class Solution {
         solve(loc, board, result);
     }
     private int nextLocation(int loc, char[][] board) {
-        for(int i = loc / 9; i < 9; i++)
-            for(int j = loc % 9; j < 9; j++)
-                if(board[i][j] == '.')
-                    return i * 9 + j;
+        for(int i = loc; i < 81; i++)
+            if(board[i / 9][i % 9] == '.')
+                return i;
         return 81;
     }
     public boolean check(int loc, char[][] result) {
@@ -31,7 +30,7 @@ public class Solution {
                 if(result[i][loc % 9] != '.') {
                     if(colCheck[result[i][loc % 9] - '1'])
                         return false;
-                    colCheck[result[i][loc % 9] - '1'] = false;
+                    colCheck[result[i][loc % 9] - '1'] = true;
                 }
                 if(result[(loc / 9) / 3 * 3 + i / 3][(loc % 9) / 3 * 3 +  i % 3] != '.') {
                     if(blockCheck[result[(loc / 9) / 3 * 3 + i / 3][(loc % 9) / 3 * 3 +  i % 3] - '1'])
@@ -40,7 +39,7 @@ public class Solution {
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("i = " + m + ",loc = " + loc);
+            System.out.println("i = " + m + ",loc = " + loc + ",result: " + result[m][loc % 9]);
             e.printStackTrace();
             System.exit(0);
         }
@@ -51,14 +50,13 @@ public class Solution {
         if(loc == 81)
             return;
         else {
-            if(result[loc / 9][loc % 9] == '.')
-                result[loc / 9][loc % 9] = '1';
-            else
-                result[loc / 9][loc % 9] += 1;
-            if(check(loc, result)) {
-                loc = nextLocation(loc, board);
+            for(int i = 1; i < 10; i++) {
+                result[loc / 9][loc % 9] = (char)(i + '0');
+                if(check(loc, result)) {
+                    loc = nextLocation(loc, board);
+                    solve(nextLocation(loc, board), board, result);
+                }
             }
-            solve(loc, board, result);
 
         }
     }
