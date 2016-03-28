@@ -1,8 +1,21 @@
 package DesignPattern.ProxyPattern;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
+interface Interface {
+    void doSomething();
+    void somethingElse(String arg);
+}
+class RealObject1 implements Interface {
+    @Override
+    public void doSomething() {
+        System.out.println("doSomething");
+    }
+    @Override
+    public void somethingElse(String arg) {
+        System.out.println("somethingElse " + arg);
+    }
+}
 class DynamicProxyHandler implements InvocationHandler {
     private Object proxied;
     public DynamicProxyHandler(Object proxied) {
@@ -22,4 +35,17 @@ class DynamicProxyHandler implements InvocationHandler {
  * Created by Kai on 2016/3/22.
  */
 public class DynamicProxy {
+    public static void consumer(Interface iface) {
+        iface.doSomething();
+        iface.somethingElse("kaikai");
+    }
+    public static void main(String... args) {
+        RealObject1 real = new RealObject1();
+        consumer(real);
+        Interface proxy = (Interface) java.lang.reflect.Proxy.newProxyInstance(
+                Interface.class.getClassLoader(),
+                new Class[]{ Interface.class},
+                new DynamicProxyHandler(real));
+        consumer(real);
+    }
 }
