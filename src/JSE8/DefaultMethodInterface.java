@@ -8,5 +8,5 @@ public interface DefaultMethodInterface {
     default void PrintObj() {
         System.out.println(this.getClass().getSimpleName());
     }
-    void print();
+    //void print();
 }
