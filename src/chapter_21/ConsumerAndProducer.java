@@ -11,8 +11,8 @@ class Goods {
     //生产者缓冲区最大值
     final static int MAX_GOODS = 20;
     final static int MAX_TIMES = 50;
-    private static int times = 0;
-    private static int goods = 0;
+    private int times = 0;
+    private int goods = 0;
     private Goods() {}
     private static class SingletonHolder {
         private static final Goods instance = new Goods();
@@ -108,7 +108,7 @@ public class ConsumerAndProducer {
     Producer producer = new Producer(this);
     Consumer consumer = new Consumer(this);
     ExecutorService exec = Executors.newCachedThreadPool();
-    ConsumerAndProducer() {
+    private ConsumerAndProducer() {
         exec.execute(producer);
         exec.execute(consumer);
     }
