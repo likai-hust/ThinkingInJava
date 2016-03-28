@@ -1,6 +1,7 @@
 package chapter_21;
 
 /**
+ * 多个锁交叉调用
  * Created by KaiLee on 2016/3/20.
  */
 public class MultiLock {
@@ -20,10 +21,6 @@ public class MultiLock {
     }
     public static void main(String... args) {
         final MultiLock multiLock = new MultiLock();
-        new Thread() {
-            public void run() {
-                multiLock.f1(10);
-            }
-        }.start();
+        new Thread( () -> { multiLock.f1(10); } ).start();
     }
 }
