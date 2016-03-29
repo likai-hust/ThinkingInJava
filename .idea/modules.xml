@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ARQ/ARQ.iml" filepath="$PROJECT_DIR$/../ARQ/ARQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/thinking.iml" filepath="$PROJECT_DIR$/thinking.iml" />
     </modules>
   </component>

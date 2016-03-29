@@ -2,7 +2,7 @@ package chapter_21;
 
 
 /**
- * 多个生产者和消费者仿真模型
+ * 多个生产者和消费者仿真模型，使用读写锁
  * Created by KaiLee on 2016/3/28.
  */
 public class MultiConsumerAndMultiProducer {
