@@ -38,7 +38,6 @@ public class FinalValue {//extends FinalMethod	//The type FinalValue cannot subc
         return i + 1;
     }
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         FinalValue f = new FinalValue();
         //f.v2 = 3;	//the final field Final.v2 cannot be assigned
         f.k1 = new Kai(1);

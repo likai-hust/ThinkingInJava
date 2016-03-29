@@ -25,19 +25,16 @@ public class Sequence {
         private int i = 0;
         @Override
         public boolean end() {
-            // TODO Auto-generated method stub
             return i == items.length;
         }
 
         @Override
         public Object current() {
-            // TODO Auto-generated method stub
             return items[i];
         }
 
         @Override
         public void next() {
-            // TODO Auto-generated method stub
             if(i < items.length)
                 i++;
         }

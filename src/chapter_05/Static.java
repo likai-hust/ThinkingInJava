@@ -27,7 +27,6 @@ class Test2 extends Test1{
 public class Static {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         Test1 t1_1 = new Test1(5);
         t1_1.i = 5;
         Test1 t1_2 = new Test1();

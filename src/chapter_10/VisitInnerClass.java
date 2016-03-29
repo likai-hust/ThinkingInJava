@@ -15,7 +15,6 @@ public class VisitInnerClass {
     class Destination {
         private String label;
         public Destination(String whereTo) {
-            // TODO Auto-generated constructor stub
             //内部类默认拥有kai的访问权
             label = whereTo + kai;
         }
@@ -36,7 +35,6 @@ public class VisitInnerClass {
     }
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         VisitInnerClass vClass = new VisitInnerClass();
         vClass.ship("HaHa");
         VisitInnerClass vClass2 = new VisitInnerClass();

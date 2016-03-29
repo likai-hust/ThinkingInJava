@@ -45,7 +45,6 @@ public class Strategy {
     }
     public static String s = "Disagreement with beliefs is by definition incorrect";
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         process(new Upcase(), s);
         process(new Downcase(), s);
         process(new Splitter(), s);

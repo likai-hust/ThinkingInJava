@@ -14,13 +14,11 @@ public class MultipleInherited implements A, B {
 
     @Override
     public void printB() {
-        // TODO Auto-generated method stub
         System.out.println(this.getClass().getSimpleName() + " B");
     }
 
     @Override
     public void printA() {
-        // TODO Auto-generated method stub
         System.out.println(this.getClass().getSimpleName() + " A");
     }
 

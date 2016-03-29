@@ -132,7 +132,6 @@ public class ThreadVariations {
      * 测试，main方法，入口
      * @param args
      */
-    // TODO: 2016/3/9 尚待完成：几种子类的创建方式
     public static void main(String[] args) {
         new InnerThread1("InnerThread1");
         new InnerThread2("InnerThread2");

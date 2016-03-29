@@ -22,7 +22,6 @@ public class Constructor {
         System.out.println(s + "/第二个构造函数");
     }
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         //Constructor b = new Constructor();	//false: The constructor Constructor() is undefined.
         @SuppressWarnings("unused")
         Constructor c = new Constructor(5);

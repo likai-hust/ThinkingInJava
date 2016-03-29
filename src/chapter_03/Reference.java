@@ -39,7 +39,6 @@ public class Reference {
         i = 10;
     }
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         Letter t1 = new Letter();
         Letter t2 = new Letter();
         t1.c = '5';
