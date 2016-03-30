@@ -35,7 +35,7 @@ class MergerSort extends RecursiveTask<int[]> {
             Arrays.sort(array, begin, end + 1);
         } else {
             //使用并发归并排序
-            int mid = (end - begin) / 2;
+            int mid = (end + begin) / 2;
             MergerSort left = new MergerSort(array, begin, mid, threshold);
             MergerSort right = new MergerSort(array, mid + 1, end, threshold);
             left.fork().join();
